@@ -1,0 +1,2 @@
+Honda-Civic	Nissan-Altima	Toyota-Corolla	Chevrolet-Silverado	Chevrolet-Malibu	Honda-CRV
+2935	3212	3252	4400	3159	3337
