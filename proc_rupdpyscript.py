@@ -1,11 +1,13 @@
-from js import document
+from js import document, window
 
 def proc_read(id: str) -> str:
     try:
         el = document.getElementById(id)
         if not el:
             return "--"
-        return el.value if hasattr(el, "value") else el.textContent
+        if hasattr(el, "value"):
+            return el.value
+        return el.textContent
     except Exception:
         return "--"
 
@@ -13,6 +15,15 @@ def proc_write(id: str, content) -> None:
     try:
         el = document.getElementById(id)
         if el:
-            el.textContent = str(content)
+            if hasattr(el, "value"):
+                el.value = str(content)     # input / textarea
+            else:
+                el.textContent = str(content)  # div / span / p
+    except Exception:
+        pass
+
+def proc_alert(msg: str) -> None:
+    try:
+        window.alert(str(msg))
     except Exception:
         pass
