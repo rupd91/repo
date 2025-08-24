@@ -22,6 +22,17 @@ def proc_write(id: str, content) -> None:
     except Exception:
         pass
 
+def proc_append(id: str, content) -> None:
+    try:
+        el = document.getElementById(id)
+        if el:
+            if hasattr(el, "value"):
+                el.value += str(content)
+            else:
+                el.textContent += str(content)
+    except Exception:
+        pass
+
 def proc_alert(msg: str) -> None:
     try:
         window.alert(str(msg))
